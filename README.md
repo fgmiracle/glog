@@ -1,6 +1,5 @@
 # glog
-rsyslog日志服务的简易版
-支持tcp/udp/unixGram/unixDomain通信
+rsyslog日志服务的简易版,支持tcp/udp/unixGram/unixDomain通信
 
 # 服务程序
 ```golang
