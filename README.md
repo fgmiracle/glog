@@ -18,7 +18,7 @@ rsyslog日志服务的简易版,支持tcp/udp/unixGram/unixDomain通信
 ```
 
 # 客户端
-客户端可以根据协议自定义 不限语音
+客户端可以根据协议自定义 不限语言！
 如golang 
 ```golang
 	glogClinet := glog.NewClinet("tcp", addr)
