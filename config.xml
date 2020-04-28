@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <!-- glog 本身日志路径 不设置 将会在程序目录创建 -->
+    <!-- <syslogPath></syslogPath> -->
+    <!-- 日志输出途径-$MINUTE -->
+    <output>
+        <template>
+            <name>BILLLOG</name>
+            <worker>1</worker>
+            <path>/data/bills/$remoteIP/bills/$YEAR-$MONTH-$DAY/bill_$YEAR-$MONTH-$DAY-$HOUR</path>
+
+            <!-- 添加的日志头-->
+            <logRule>true</logRule>
+        </template>
+
+        <template>
+            <name>PRINTLOG</name>
+            <worker>1</worker>
+            <path>/data/logs/$YEAR-$MONTH-$DAY-$HOUR-$MINUTE/$logName_$YEAR-$MONTH-$DAY-$HOUR-$MINUTE</path>
+        </template>
+
+        <template>
+            <name>LOCAL2</name>
+            <worker>1</worker>
+            <tcp>192.168.1.232:8080</tcp>
+        </template>
+
+
+    </output>
+    <server>
+        <!-- 服务端读取 监听端口及方式-->
+        <!-- tcp 接受 -->
+        <!-- <tcp>8080</tcp> -->
+        <!-- 流方式 -->
+        <!-- <unixDomain>/tmp/glog.domain</unixDomain> -->
+        <!-- 报文方式 -->
+        <unixGram>/tmp/glog.gram</unixGram>
+    </server>
+
+    <!-- 服务端工作协程 -->
+    <svrWorker>1</svrWorker>
+</config>
