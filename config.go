@@ -13,12 +13,12 @@ import (
 type template struct {
 	Name       string `xml:"name"`
 	Path       string `xml:"path"`
+	LogRule    bool   `xml:"logRule"`
 	Worker     int    `xml:"worker"`
 	Tcp        string `xml:"tcp"`
 	UnixDomain string `xml:"unixDomain"`
-	unixGram   string `xml:"unixGram"`
+	UnixGram   string `xml:"unixGram"`
 	Udp        string `xml:"udp"`
-	logRule    bool   `xml:"logRule"`
 }
 
 type outList struct {
@@ -95,13 +95,14 @@ func parseConfig(path string) (bool, error) {
 			Path = info.Path
 			Type = tplFile
 			Worker = info.Worker
-			logRule = info.logRule
+			logRule = info.LogRule
+
 		} else if info.UnixDomain != "" {
 			Path = info.UnixDomain
 			Type = tplUnixDomain
 			Worker = info.Worker
-		} else if info.unixGram != "" {
-			Path = info.unixGram
+		} else if info.UnixGram != "" {
+			Path = info.UnixGram
 			Type = tplUnixGram
 			Worker = info.Worker
 		} else if info.Tcp != "" {

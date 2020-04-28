@@ -305,7 +305,6 @@ func unixGramServer(addr string) {
 			}
 
 			level, logName, tpl, msg, err := analyseMsg(buf[2:], size-2)
-			printSyslog(fmt.Sprintf("unixGramServer  ->recv msg logName:%s", logName))
 			// 分发消息
 			if err != nil {
 				printSyslog(err.Error())

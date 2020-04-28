@@ -88,7 +88,7 @@ func tplInit() {
 			go tplRun(temTpl)
 		}
 
-		printSyslog(fmt.Sprintf("out tpl name<%s>, addr<%s>", info.Type, info.Path))
+		printSyslog(fmt.Sprintf("out tpl name<%s>, addr<%s> parts:%d", info.Type, info.Path, len(temTpl.parts)))
 		tplList[name] = temTpl
 	}
 
